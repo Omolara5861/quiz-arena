@@ -1,0 +1,55 @@
+.main-card {
+    border-radius: 20px;
+}
+
+h4 {
+    font-family: cursive;
+}
+
+span {
+    font-style: italic;
+}
+
+.hero-container img {
+    width: 150px;
+}
+
+.card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+li:hover {
+    border: 1px solid darkgreen;
+}
+
+ol {
+    padding: 0;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow:none;
+}
+
+.next {
+    padding:  10px 40px;
+    margin-right: -12px;
+    margin-bottom: -10px;
+    border-radius: 7px 0 20px 0;
+    border-color: #1a1e21;
+    box-shadow: -2px -2px 0 0.07rem rgb(66 70 73 / 50%);
+}
+
+.next:focus {
+    border-color: #1a1e21;
+    box-shadow: -2px -2px 0 0.07rem rgb(66 70 73 / 50%);
+}
+
