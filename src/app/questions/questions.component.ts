@@ -47,11 +47,13 @@ export class QuestionsComponent implements OnInit {
       this.points += 10;
       this.correctAns++;
       this.currentQuestion++;
+      this.resetTimer();
     }
     else {
       this.points -= 10;
       this.inCorrectAns++;
       this.currentQuestion++;
+      this.resetTimer();
     }
   }
 
