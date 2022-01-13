@@ -13,6 +13,10 @@ export class QuestionsComponent implements OnInit {
   currentQuestion: number = 0;
   points: number = 0;
   timer: number = 60;
+  correctAns: number = 0;
+  inCorrectAns: number = 0;
+
+
   constructor(private questionService: QuestionsService) { }
 
   ngOnInit(): void {
@@ -34,5 +38,18 @@ export class QuestionsComponent implements OnInit {
 
   prevQuestion() {
     this.currentQuestion--;
+  }
+
+  answer(questionNo:number, questionOpt:any) {
+    if(questionOpt.correct) {
+      this.points += 10;
+      this.correctAns++;
+      this.currentQuestion++;
+    }
+    else {
+      this.points -= 10;
+      this.inCorrectAns++;
+      this.currentQuestion++;
+    }
   }
 }
