@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { QuestionsService } from '../services/questions.service';
 
 @Component({
@@ -15,13 +16,14 @@ export class QuestionsComponent implements OnInit {
   timer: number = 60;
   correctAns: number = 0;
   inCorrectAns: number = 0;
-
+  interval$:any;
 
   constructor(private questionService: QuestionsService) { }
 
   ngOnInit(): void {
     this.name = localStorage.getItem('name')!;
     this.getAllQuestions();
+    this.startTimer();
   }
 
   getAllQuestions() {
@@ -52,4 +54,31 @@ export class QuestionsComponent implements OnInit {
       this.currentQuestion++;
     }
   }
+
+  startTimer() {
+    this.interval$ = interval(1000)
+    .subscribe(val => {
+      this.timer--;
+      if(this.timer === 0) {
+        this.points -= 10;
+        this.currentQuestion++;
+        this.inCorrectAns++;
+      }
+    });
+    setTimeout(() => {
+        this.interval$.unsubscribe();
+    }, 60000)
+  }
+
+  stopTimer() {
+    this.interval$.unsubscribe();
+    this.timer = 0;
+  }
+
+  resetTimer() {
+    this.stopTimer();
+    this.timer = 60;
+    this.startTimer();
+  }
 }
+
