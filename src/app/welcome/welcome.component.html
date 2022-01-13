@@ -15,7 +15,7 @@
     <h3 class="wish">All the best! Goodluck.</h3>
     <div class="name col-md-4 my-3">
         <label for="name">Enter Your Name:</label>
-        <input type="text" class="form-control" id="name">
+        <input #name type="text" class="form-control" id="name">
     </div>
-    <button class="btn btn-lg btn-dark rounded" routerLink="/questions">Start Quiz</button>
+    <button class="btn btn-lg btn-dark rounded" routerLink="/questions" (click)="startQuiz()">Start Quiz</button>
 </div>

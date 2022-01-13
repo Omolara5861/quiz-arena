@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
+  name: string = '';
   constructor() { }
 
   ngOnInit(): void {
+    this.name = localStorage.getItem('name')!;
   }
-
 }
