@@ -80,5 +80,12 @@ export class QuestionsComponent implements OnInit {
     this.timer = 60;
     this.startTimer();
   }
+
+  resetQuiz() {
+    this.resetTimer();
+    this.getAllQuestions();
+    this.points = 0;
+    this.currentQuestion = 0;
+  }
 }
 
