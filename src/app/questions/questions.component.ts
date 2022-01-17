@@ -17,6 +17,7 @@ export class QuestionsComponent implements OnInit {
   correctAns: number = 0;
   inCorrectAns: number = 0;
   interval$:any;
+  progresswidth:string = "0";
 
   constructor(private questionService: QuestionsService) { }
 
@@ -34,6 +35,11 @@ export class QuestionsComponent implements OnInit {
     }) 
   }
 
+  getProgressWidth() {
+    this.progresswidth = ((this.currentQuestion/this.questionList.length) * 100).toString();
+    return this.progresswidth;
+  }
+
   nextQuestion() {
     this.currentQuestion++;
   }
@@ -47,12 +53,14 @@ export class QuestionsComponent implements OnInit {
       this.points += 10;
       this.correctAns++;
       this.currentQuestion++;
+      this.getProgressWidth();
       this.resetTimer();
     }
     else {
       this.points -= 10;
       this.inCorrectAns++;
       this.currentQuestion++;
+      this.getProgressWidth()
       this.resetTimer();
     }
   }
