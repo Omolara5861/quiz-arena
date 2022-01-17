@@ -161,6 +161,24 @@
                 }
             ],
             "explanation": "this.propertyName is the way to access a specific property within a class"
+        },
+        {
+            "questionText": "What Year was Angular Introduced?",
+            "options": [{
+                    "text": "2007"
+                },
+                {
+                    "text": "2009"
+                },
+                {
+                    "text": "2010",
+                    "correct": true
+                },
+                {
+                    "text": "2008"
+                }
+            ],
+            "explanation": "it was released octorber 20, 2010 via the AngularJs Repository"
         }
     ]
 }
