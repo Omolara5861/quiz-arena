@@ -51,17 +51,22 @@ export class QuestionsComponent implements OnInit {
   answer(questionNo:number, questionOpt:any) {
     if(questionOpt.correct) {
       this.points += 10;
-      this.correctAns++;
-      this.currentQuestion++;
-      this.getProgressWidth();
-      this.resetTimer();
+      setTimeout( () => {
+        this.correctAns++;
+        this.currentQuestion++;
+        this.getProgressWidth();
+        this.resetTimer();
+      }, 1000);
+
     }
     else {
-      this.points -= 10;
-      this.inCorrectAns++;
+      setTimeout(() => {
+        this.inCorrectAns++;
       this.currentQuestion++;
       this.getProgressWidth()
       this.resetTimer();
+      }, 1000)
+      this.points -= 10;
     }
   }
 
