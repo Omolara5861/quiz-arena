@@ -1,19 +1,18 @@
 <div class="container my-4">
     <div class="card main-card">
-        <div class="d-flex py-3 justify-content-between p-3">
-            <img src="/assets/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d794bb54.1612525215223787116092.png" alt="logo" width="100">
-
-            <div>
-                <h4>Angular &amp; TypeScript Quiz</h4>
-                <span>Welcome {{name}}</span>
-            </div>
-        </div>
-
         <!-- Question and Options Container -->
-        <ng-container>
+        <ng-container *ngIf="!completedQuiz">
+            <div class="d-flex py-3 justify-content-between p-3">
+                <img src="/assets/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d794bb54.1612525215223787116092.png" alt="logo" width="100">
+    
+                <div>
+                    <h4>Angular &amp; TypeScript Quiz</h4>
+                    <span>Welcome {{name}}</span>
+                </div>
+            </div>
             <div class=" d-flex justify-content-around py-3">
                 <div class="points">
-                    <h5> {{points}} points</h5>
+                    <h5> {{points}} *ngIf="points < 10 ? 'point' : points"</h5>
                 </div>
                 <div class="question-count">
                     <span>Question {{currentQuestion+1}} of {{questionList.length}}</span>
@@ -45,8 +44,31 @@
             </div>
         </ng-container>
         <!-- Result Container -->
-        <ng-container>
-            
+        <ng-container *ngIf="completedQuiz">
+            <div class="header">
+                <h4>Quiz Result</h4>
+                <div *ngIf="points >= 60">
+                    <p style="color: green;">You've won! Yeah!!!</p>
+                    <img src="assets/PikPng.com_trophy-icon-png_860603.png">
+                    <p>Congratulations {{name}}, You're a Legend!</p>
+                </div>
+                <div *ngIf="points < 60">
+                    <p style="color: orangered;" >Oh no! You've Lost!!!</p>
+                    <img src="assets/sad.jpg">
+                    <p>Sorry {{name}}, You can try again!</p>
+                </div>
+            </div>
+            <div style="margin: 0 auto;">
+                <div class="neumorphism">
+                    <h5>You scored {{points}} points.</h5>
+                    <p>You attempted a total of {{questionList.length}} questions, {{correctAns}} of your options were/was correct and {{inCorrectAns}} were/was wrong.</p>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button class="btn again btn-dark" routerLink="/question"><i class="fa fa-redo"></i> Try Again</button>
+                <button class="btn next btn-dark" routerLink="/welcome"><i class="fas fa-arrow-left"></i> Main Menu</button>
+            </div>
         </ng-container>
     </div>
 </div>

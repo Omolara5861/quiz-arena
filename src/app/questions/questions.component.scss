@@ -39,7 +39,7 @@ ol {
     box-shadow:none;
 }
 
-.next {
+.next, .again {
     padding:  10px 40px;
     margin-right: -12px;
     margin-bottom: -10px;
@@ -47,12 +47,47 @@ ol {
     border-color: #1a1e21;
     box-shadow: -2px -2px 0 0.07rem rgb(66 70 73 / 50%);
 }
-
-.next:focus {
+.next:focus, .again:focus{
     border-color: #1a1e21;
     box-shadow: -2px -2px 0 0.07rem rgb(66 70 73 / 50%);
 }
 
+.again {
+    margin-left: -12px;
+    border-radius: 0 7px 0 20px;
+    box-shadow: 2px -2px 0 0.07rem rgb(66 70 73 / 50%);
+}
+.again:focus {
+    box-shadow: 2px -2px 0 0.07rem rgb(66 70 73 / 50%);
+}
+
 .options div {
     border-radius: 0;
+}
+
+// Result Page
+.header {
+    text-align: center;
+}
+.header img {
+    width: 200px;
+}
+.header p:first-child {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.header p:last-child {
+    font-size: 25px;
+}
+
+.neumorphism {
+	margin: 50px;
+    padding: 2rem;
+    text-align: center;
+	height: 200px;
+	width: 450px;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.692), inset 3px 3px 5px rgba(94, 104, 121, 0.692);
 }
