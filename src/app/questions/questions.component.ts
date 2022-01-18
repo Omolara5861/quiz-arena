@@ -16,10 +16,12 @@ export class QuestionsComponent implements OnInit {
   pointsMoreThan1: Boolean = true;
   timer: number = 60;
   correctAns: number = 0;
+  correctAnsMoreThan1:any = true;
   inCorrectAns: number = 0;
+  incorrectAnsMoreThan1:any = true;
   interval$:any;
   progresswidth:string = "0";
-  completedQuiz: Boolean = false;  
+  completedQuiz: boolean = false;  
   
 
   constructor(private questionService: QuestionsService) { }
@@ -62,6 +64,14 @@ export class QuestionsComponent implements OnInit {
 
     if(questionNo === this.questionList.length) {
         this.completedQuiz = true;
+    }
+
+    if(this.correctAns <= 1) {
+      this.correctAnsMoreThan1 = false;
+    }
+
+    if(this.inCorrectAns <= 1) {
+      this.incorrectAnsMoreThan1 = false;
     }
 
     if(questionOpt.correct) {
@@ -112,10 +122,12 @@ export class QuestionsComponent implements OnInit {
   }
 
   resetQuiz() {
+    this.completedQuiz = false;
     this.resetTimer();
     this.getAllQuestions();
     this.points = 0;
     this.currentQuestion = 0;
+
   }
 }
 
