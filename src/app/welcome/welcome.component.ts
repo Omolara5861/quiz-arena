@@ -8,7 +8,7 @@ import { FormControl, FormGroup, FormControlName, Validators } from '@angular/fo
 export class WelcomeComponent implements OnInit {
 
   form = new FormGroup({
-    user:new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]+$')])
+    user:new FormControl('', [Validators.required, Validators.pattern('[a-z A-Z]+$')])
   })
 
   @ViewChild('name')nameKey!: ElementRef;
