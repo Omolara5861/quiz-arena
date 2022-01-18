@@ -13,13 +13,14 @@ export class QuestionsComponent implements OnInit {
   questionList: any = [];
   currentQuestion: number = 0;
   points: number = 0;
-  // pointsMoreThan1: Boolean = false;
+  pointsMoreThan1: Boolean = true;
   timer: number = 60;
   correctAns: number = 0;
   inCorrectAns: number = 0;
   interval$:any;
   progresswidth:string = "0";
   completedQuiz: Boolean = false;  
+  
 
   constructor(private questionService: QuestionsService) { }
 
@@ -55,13 +56,14 @@ export class QuestionsComponent implements OnInit {
   }
 
   answer(questionNo:number, questionOpt:any) {
-    // if(this.points > 1) {
-    //     this.pointsMoreThan1 = true;
-    // }
+    if(this.points === 0) {
+        this.pointsMoreThan1 = false;
+    }
 
     if(questionNo === this.questionList.length) {
         this.completedQuiz = true;
     }
+
     if(questionOpt.correct) {
       this.points += 10;
       setTimeout( () => {

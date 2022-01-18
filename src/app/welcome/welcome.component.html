@@ -13,9 +13,12 @@
         <li>To pass the quiz, you need to score a minimum of 60 points.</li>
     </ol>
     <h3 class="wish">All the best! Goodluck.</h3>
+    <form [formGroup]="form">
     <div class="name col-md-4 my-3">
         <label for="name">Enter Your Name:</label>
-        <input #name type="text" class="form-control" id="name">
+        <input #name type="text" class="form-control" id="name" formControlName="user">
+        <span class="text-danger" *ngIf="user && user.invalid && user.touched">Name field can only contain alphabet and cannot be empty!</span>
     </div>
-    <button class="btn btn-lg btn-dark rounded" routerLink="/questions" (click)="startQuiz()">Start Quiz</button>
+    <button class="btn btn-lg btn-dark rounded" [disabled]="form.invalid" routerLink="/questions" (click)="startQuiz()">Start Quiz</button>
+</form>
 </div>
