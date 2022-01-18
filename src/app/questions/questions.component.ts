@@ -13,6 +13,7 @@ export class QuestionsComponent implements OnInit {
   questionList: any = [];
   currentQuestion: number = 0;
   points: number = 0;
+  // pointsMoreThan1: Boolean = false;
   timer: number = 60;
   correctAns: number = 0;
   inCorrectAns: number = 0;
@@ -43,6 +44,10 @@ export class QuestionsComponent implements OnInit {
 
   nextQuestion() {
     this.currentQuestion++;
+    if(this.currentQuestion === this.questionList.length) {
+      this.completedQuiz = true;
+  }
+  this.inCorrectAns++;
   }
 
   prevQuestion() {
@@ -50,6 +55,10 @@ export class QuestionsComponent implements OnInit {
   }
 
   answer(questionNo:number, questionOpt:any) {
+    // if(this.points > 1) {
+    //     this.pointsMoreThan1 = true;
+    // }
+
     if(questionNo === this.questionList.length) {
         this.completedQuiz = true;
     }
