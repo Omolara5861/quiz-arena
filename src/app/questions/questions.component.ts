@@ -16,9 +16,9 @@ export class QuestionsComponent implements OnInit {
   pointsMoreThan1: Boolean = true;
   timer: number = 60;
   correctAns: number = 0;
-  correctAnsMoreThan1:any = true;
+  correctAnsMoreThan1:boolean = true;
   inCorrectAns: number = 0;
-  incorrectAnsMoreThan1:any = true;
+  incorrectAnsMoreThan1:boolean = true;
   interval$:any;
   progresswidth:string = "0";
   completedQuiz: boolean = false;  
@@ -50,7 +50,6 @@ export class QuestionsComponent implements OnInit {
     if(this.currentQuestion === this.questionList.length) {
       this.completedQuiz = true;
   }
-  this.inCorrectAns++;
   }
 
   prevQuestion() {
@@ -70,7 +69,7 @@ export class QuestionsComponent implements OnInit {
       this.correctAnsMoreThan1 = false;
     }
 
-    if(this.inCorrectAns <= 1) {
+    if(this.inCorrectAns === 0 || this.inCorrectAns === 1) {
       this.incorrectAnsMoreThan1 = false;
     }
 
@@ -126,6 +125,8 @@ export class QuestionsComponent implements OnInit {
     this.resetTimer();
     this.getAllQuestions();
     this.points = 0;
+    this.correctAns = 0;
+    this.inCorrectAns = 0;
     this.currentQuestion = 0;
 
   }
