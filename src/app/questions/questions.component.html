@@ -44,7 +44,7 @@
             </div>
         </ng-container>
         <!-- Result Container -->
-        <ng-container >
+        <ng-container *ngIf="completedQuiz">
             <div class="header text-center">
                 <h4>Quiz Result</h4>
                 <div *ngIf="points >= 60">
@@ -61,7 +61,7 @@
             <div style="margin: 0 auto;">
                 <div class="card neumorphism">
                     <h5>You scored {{points}} points</h5>
-                    <p>You attempted a total of {{questionList.length}} questions, {{correctAns}} of your options {{correctAnsMoreThan1 ? 'was' : 'were'}} correct and {{inCorrectAns}} {{incorrectAnsMoreThan1 ? 'was' : 'were'}} wrong.</p>
+                    <p>You attempted a total of {{questionList.length}} questions, {{correctAns}} of your options were correct and were wrong.</p>
                 </div>
             </div>
 

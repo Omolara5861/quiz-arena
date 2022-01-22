@@ -102,12 +102,15 @@ ol {
     .points-container {
         margin: 0 auto;
         flex-direction: column;
-        justify-content: center !important;
     }
 
-    // .question-count {
-    //     margin: 10px auto;
-    // }
+    .question-count {
+        margin: 10px auto;
+    }
+
+    .timer {
+        margin-top: 10px;
+    }
 
     .buttons {
         flex-direction: column;

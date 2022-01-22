@@ -30,6 +30,13 @@ export class QuestionsComponent implements OnInit {
     this.name = localStorage.getItem('name')!;
     this.getAllQuestions();
     this.startTimer();
+    if(this.correctAns <= 1) {
+      this.correctAnsMoreThan1 = false;
+    }
+
+    if(this.inCorrectAns <= 1) {
+      this.incorrectAnsMoreThan1 = false;
+    }
   }
 
   getAllQuestions() {
@@ -63,14 +70,6 @@ export class QuestionsComponent implements OnInit {
 
     if(questionNo === this.questionList.length) {
         this.completedQuiz = true;
-    }
-
-    if(this.correctAns <= 1) {
-      this.correctAnsMoreThan1 = false;
-    }
-
-    if(this.inCorrectAns === 0 || this.inCorrectAns === 1) {
-      this.incorrectAnsMoreThan1 = false;
     }
 
     if(questionOpt.correct) {
