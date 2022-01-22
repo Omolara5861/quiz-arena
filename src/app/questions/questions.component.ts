@@ -16,9 +16,7 @@ export class QuestionsComponent implements OnInit {
   pointsMoreThan1: boolean = true;
   timer: number = 60;
   correctAns: number = 0;
-  correctAnsMoreThan1:any = true;
   inCorrectAns: number = 0;
-  incorrectAnsMoreThan1:any = true;
   interval$:any;
   progresswidth:string = "0";
   completedQuiz: boolean = false;  
@@ -30,13 +28,6 @@ export class QuestionsComponent implements OnInit {
     this.name = localStorage.getItem('name')!;
     this.getAllQuestions();
     this.startTimer();
-    if(this.correctAns <= 1) {
-      this.correctAnsMoreThan1 = false;
-    }
-
-    if(this.inCorrectAns <= 1) {
-      this.incorrectAnsMoreThan1 = false;
-    }
   }
 
   getAllQuestions() {
@@ -89,7 +80,6 @@ export class QuestionsComponent implements OnInit {
       this.getProgressWidth()
       this.resetTimer();
       }, 1000)
-      this.points -= 10;
     }
   }
 
@@ -98,7 +88,6 @@ export class QuestionsComponent implements OnInit {
     .subscribe(val => {
       this.timer--;
       if(this.timer === 0) {
-        this.points -= 10;
         this.currentQuestion++;
         this.inCorrectAns++;
       }
