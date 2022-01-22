@@ -1,12 +1,15 @@
+//Install express server
 const express = require('express');
 const path = require('path');
 
-const ngApp = express();
+const app = express();
 
-ngApp.use(express.static('./dist/angular-quiz-app'));
+// Serve only the static files form the dist directory
+app.use(express.static('./dist/angular-quiz-app'));
 
-ngApp.get('/*', function (request, response) {
-     response.sendFile('index.html', {root: 'dist/angular-heroku/'});
-});
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/angular-heroku/'}),
+);
 
-ngApp.listen(process.env.PORT || 8080);
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
