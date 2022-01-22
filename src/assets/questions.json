@@ -66,8 +66,7 @@
                 {
                     "text": "number?"
                 }
-            ],
-            "explanation": "number[] is another way of writing Array<number> in TypeScript"
+            ]
         },
         {
             "questionText": "Of the options below, what has four legs, one head and one foot?",
