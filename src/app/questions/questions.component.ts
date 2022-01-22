@@ -13,12 +13,12 @@ export class QuestionsComponent implements OnInit {
   questionList: any = [];
   currentQuestion: number = 0;
   points: number = 0;
-  pointsMoreThan1: Boolean = true;
+  pointsMoreThan1: boolean = true;
   timer: number = 60;
   correctAns: number = 0;
-  correctAnsMoreThan1:boolean = true;
+  correctAnsMoreThan1:any = true;
   inCorrectAns: number = 0;
-  incorrectAnsMoreThan1:boolean = true;
+  incorrectAnsMoreThan1:any = true;
   interval$:any;
   progresswidth:string = "0";
   completedQuiz: boolean = false;  
@@ -128,7 +128,6 @@ export class QuestionsComponent implements OnInit {
     this.correctAns = 0;
     this.inCorrectAns = 0;
     this.currentQuestion = 0;
-
   }
 }
 

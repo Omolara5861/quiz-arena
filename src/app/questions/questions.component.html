@@ -10,7 +10,7 @@
                     <span>Welcome {{name}}</span>
                 </div>
             </div>
-            <div class=" d-flex justify-content-around py-3">
+            <div class=" d-flex justify-content-around py-3 points-container">
                 <div class="points" >
                     <h5> {{points}} {{pointsMoreThan1 ? 'point' : 'points'}}</h5>
                 </div>
@@ -44,7 +44,7 @@
             </div>
         </ng-container>
         <!-- Result Container -->
-        <ng-container *ngIf="completedQuiz">
+        <ng-container >
             <div class="header text-center">
                 <h4>Quiz Result</h4>
                 <div *ngIf="points >= 60">
@@ -65,9 +65,9 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between buttons">
                 <button class="btn again btn-dark" (click)="resetQuiz()"><i class="fa fa-redo"></i> Try Again</button>
-                <button class="btn next btn-dark" routerLink="/welcome"><i class="fas fa-arrow-left"></i> Main Menu</button>
+                <button class="btn next1 btn-dark" routerLink="/welcome"><i class="fas fa-arrow-left"></i> Main Menu</button>
             </div>
         </ng-container>
     </div>

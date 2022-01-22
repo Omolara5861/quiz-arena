@@ -40,7 +40,7 @@ ol {
     box-shadow:none;
 }
 
-.next, .again {
+.next, .next1, .again {
     padding:  10px 40px;
     margin-right: -12px;
     margin-bottom: -10px;
@@ -48,7 +48,7 @@ ol {
     border-color: #1a1e21;
     box-shadow: -2px -2px 0 0.07rem rgb(66 70 73 / 50%);
 }
-.next:focus, .again:focus{
+.next:focus, .next:focus, .again:focus{
     border-color: #1a1e21;
     box-shadow: -2px -2px 0 0.07rem rgb(66 70 73 / 50%);
 }
@@ -91,4 +91,42 @@ ol {
 	background: #fff;
 	border-radius: 5px;
 	box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.692), inset 3px 3px 5px rgba(94, 104, 121, 0.692);
+}
+
+// Media Query for Smartphones
+@media only screen and (max-width: 600px){
+    .neumorphism {
+        margin: 50px 0;
+    }
+
+    .points-container {
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center !important;
+    }
+
+    // .question-count {
+    //     margin: 10px auto;
+    // }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .again {
+        margin-bottom: 20px;
+        background-color: transparent;
+        color: black;
+        margin-left: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .next1 {
+        border-radius: 7px 7px 20px 20px;
+        box-shadow: 0 -2px 0 0.07rem rgb(66 70 73 / 50%);
+        margin-left: -12px;
+    }
+
+    
 }
