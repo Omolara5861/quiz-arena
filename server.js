@@ -6,7 +6,7 @@ const ngApp = express();
 ngApp.use(express.static('./dist/angular-quiz-app'));
 
 ngApp.get('/*', function (request, response) {
-    response.sendFile(path.join('angular-quiz-app', '/dist/src/index.html'));
+     response.sendFile('index.html', {root: 'dist/angular-heroku/'});
 });
 
 ngApp.listen(process.env.PORT || 8080);

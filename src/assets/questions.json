@@ -1,58 +1,55 @@
 
 {
     "questions": [{
-            "questionText": "Which of the following does TypeScript use to specify types?",
+            "questionText": "2022 marks the 30th anniversary of which of these classic Disney movies?",
             "options": [{
-                    "text": ":",
+                    "text": "Aladdin",
                     "correct": true
                 },
                 {
-                    "text": ";"
+                    "text": "Beauty and the Beast"
                 },
                 {
-                    "text": "!"
+                    "text": "Bambi"
                 },
                 {
-                    "text": "&"
+                    "text": "The Lion King"
                 }
-            ],
-            "explanation": "TS uses a colon (:) to separate the property name from the property type"
+            ]
         },
         {
-            "questionText": "Which of the following is NOT a type used in TypeScript?",
+            "questionText": "Which of these stars was a lead cast in the Home Alone movie",
             "options": [{
-                    "text": "number"
+                    "text": "Daniel Stern"
                 },
                 {
-                    "text": "string"
+                    "text": "Joe Pesci"
                 },
                 {
-                    "text": "boolean"
+                    "text": "Kieran Culkin"
                 },
                 {
-                    "text": "enum",
+                    "text": "Macaulay Culkin",
                     "correct": true
                 }
-            ],
-            "explanation": "enum is not used as a type in TypeScript"
+            ]
         },
         {
-            "questionText": "How can we specify properties and methods for an object in TypeScript?",
+            "questionText": "What can you catch but cannot throw??",
             "options": [{
-                    "text": "Use classes."
+                    "text": "A tennis ball."
                 },
                 {
-                    "text": "Use interfaces.",
+                    "text": "A cold.",
                     "correct": true
                 },
                 {
-                    "text": "Use enums."
+                    "text": "Your toys."
                 },
                 {
-                    "text": "Use async/await."
+                    "text": "A boomerang."
                 }
-            ],
-            "explanation": "interfaces are typically used to list the properties and methods for an object"
+            ]
         },
         {
             "questionText": "How else can Array<number> be written in TypeScript?",
@@ -73,112 +70,106 @@
             "explanation": "number[] is another way of writing Array<number> in TypeScript"
         },
         {
-            "questionText": "In which of these does a class take parameters?",
+            "questionText": "Of the options below, what has four legs, one head and one foot?",
             "options": [{
-                    "text": "constructor",
+                    "text": "A bed",
                     "correct": true
                 },
                 {
-                    "text": "destructor"
+                    "text": "An Amazonian rabbit"
                 },
                 {
-                    "text": "import"
+                    "text": "A three-legged dog"
                 },
                 {
-                    "text": "subscribe"
+                    "text": "A chair"
                 }
-            ],
-            "explanation": "a constructor is used by a class to take in parameters"
+            ]
         },
         {
-            "questionText": "Which is NOT an access modifier?",
+            "questionText": "What is 3/7 of Chicken, 2/3 of cat and 2/4 of goat?",
             "options": [{
-                    "text": "private"
+                    "text": "Childbirth"
                 },
                 {
-                    "text": "protected"
+                    "text": "Chiffon"
                 },
                 {
-                    "text": "public"
+                    "text": "Chipmunk"
                 },
                 {
-                    "text": "async",
+                    "text": "Chicago",
                     "correct": true
                 }
-            ],
-            "explanation": "async is not used as an access modifier type in TypeScript"
+            ]
         },
         {
-            "questionText": "Which keyword allows us to share information between files in TypeScript?",
+            "questionText": "Which of the following billionaires went to space in 2021?",
             "options": [{
-                    "text": "import"
+                    "text": "Warren Buffett and Mark Zuckerberg"
                 },
                 {
-                    "text": "export",
+                    "text": "Richard Branson and Jeff Bezos",
                     "correct": true
                 },
                 {
-                    "text": "async"
+                    "text": "Sergey Brin and Bernard Arnault"
                 },
                 {
-                    "text": "constructor"
+                    "text": "Elon Musk and Bill Gates"
                 }
-            ],
-            "explanation": "the export keyword allows for the information to be transmitted between files"
+            ]
         },
         {
-            "questionText": "Which is an array method to generate a new array based on a condition?",
+            "questionText": "Which country topped the leaderboard at the delayed 2020 Olympics?",
             "options": [{
-                    "text": "filter",
+                    "text": "United States",
                     "correct": true
                 },
                 {
-                    "text": "map"
+                    "text": "China"
                 },
                 {
-                    "text": "async"
+                    "text": "Great Britain"
                 },
                 {
-                    "text": "enum"
+                    "text": "Japan"
                 }
-            ],
-            "explanation": "filter is a method used to conditionally create a new array"
+            ]
         },
         {
-            "questionText": "How is a property accessible within a class?",
+            "questionText": "Which United States president had his Facebook account suspended in 2021?",
             "options": [{
-                    "text": "Using this.propertyName",
+                    "text": "Barack Obama"
+                },
+                {
+                    "text": "George Bush"
+                },
+                {
+                    "text": "Joe Biden"
+                },
+                {
+                    "text": "Donald Trump",
                     "correct": true
-                },
-                {
-                    "text": "Accessors"
-                },
-                {
-                    "text": "Destructuring"
-                },
-                {
-                    "text": "Arrow function"
                 }
-            ],
-            "explanation": "this.propertyName is the way to access a specific property within a class"
+            ]
         },
         {
-            "questionText": "What Year was Angular Introduced?",
+            "questionText": "When was the World Wide Web invented?",
             "options": [{
-                    "text": "2007"
+                    "text": "1990"
                 },
                 {
-                    "text": "2009"
+                    "text": "1994"
                 },
                 {
-                    "text": "2010",
+                    "text": "1989",
                     "correct": true
                 },
                 {
-                    "text": "2008"
+                    "text": "1996"
                 }
-            ],
-            "explanation": "it was released octorber 20, 2010 via the AngularJs Repository"
+            ]
         }
     ]
 }
