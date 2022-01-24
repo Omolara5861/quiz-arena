@@ -21,6 +21,7 @@ export class QuestionsComponent implements OnInit {
   progresswidth:string = "0";
   completedQuiz: boolean = false;  
   lastQuestion: boolean = false;
+  nextBtnClicked: boolean = false;
   
 
   constructor(private questionService: QuestionsService) { }
@@ -29,7 +30,7 @@ export class QuestionsComponent implements OnInit {
     this.name = localStorage.getItem('name')!;
     this.getAllQuestions();
     this.startTimer();
-    
+  
   }
 
   getAllQuestions() {
@@ -37,6 +38,7 @@ export class QuestionsComponent implements OnInit {
     .subscribe(
       (res) => {
       this.questionList = res.questions;
+      console.log(res);
     }) 
   }
 
@@ -47,6 +49,8 @@ export class QuestionsComponent implements OnInit {
 
   nextQuestion() {
     this.currentQuestion++;
+    this.nextBtnClicked = false;
+    this.resetTimer();
   }
 
   prevQuestion() {
@@ -54,32 +58,38 @@ export class QuestionsComponent implements OnInit {
   }
 
   answer(questionNo:number, questionOpt:any) {
-    if(this.points === 0) {
-        this.pointsMoreThan1 = false;
-    }
+    console.log("this is option: " , questionOpt);
+    if(questionOpt) {
+        this.nextBtnClicked = true;
 
-    if(questionNo === this.questionList.length) {
-        this.completedQuiz = true;
-    }
-
-    if(questionOpt.correct) {
-      this.points += 10;
-      setTimeout( () => {
+        if(this.points === 0) {
+          this.pointsMoreThan1 = false;
+      }
+  
+      if(questionNo === this.questionList.length) {
+          this.lastQuestion = true;
+      }
+  
+      if(questionOpt.correct) {
+        this.points += 10;
+        setTimeout( () => {
+          // this.currentQuestion++;
+          this.correctAns++;
+          this.getProgressWidth();
+          this.resetTimer();
+        }, 1000);
+  
+      }
+      else {
+        setTimeout(() => {
         // this.currentQuestion++;
-        this.correctAns++;
-        this.getProgressWidth();
+        this.inCorrectAns++;
+        this.getProgressWidth()
         this.resetTimer();
-      }, 1000);
+        }, 1000)
+      }
+    }
 
-    }
-    else {
-      setTimeout(() => {
-      // this.currentQuestion++;
-      this.inCorrectAns++;
-      this.getProgressWidth()
-      this.resetTimer();
-      }, 1000)
-    }
   }
 
   startTimer() {
@@ -117,10 +127,13 @@ export class QuestionsComponent implements OnInit {
     this.currentQuestion = 0;
     this.lastQuestion = false;
     this.progresswidth = "0";
+    this.nextBtnClicked = false;
   }
 
   viewResult() {
     this.completedQuiz = true;
   }
+
+ 
 }
 
