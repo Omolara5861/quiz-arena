@@ -20,6 +20,7 @@ export class QuestionsComponent implements OnInit {
   interval$:any;
   progresswidth:string = "0";
   completedQuiz: boolean = false;  
+  lastQuestion: boolean = false;
   
 
   constructor(private questionService: QuestionsService) { }
@@ -28,6 +29,7 @@ export class QuestionsComponent implements OnInit {
     this.name = localStorage.getItem('name')!;
     this.getAllQuestions();
     this.startTimer();
+    
   }
 
   getAllQuestions() {
@@ -45,9 +47,6 @@ export class QuestionsComponent implements OnInit {
 
   nextQuestion() {
     this.currentQuestion++;
-    if(this.currentQuestion === this.questionList.length) {
-      this.completedQuiz = true;
-  }
   }
 
   prevQuestion() {
@@ -66,7 +65,7 @@ export class QuestionsComponent implements OnInit {
     if(questionOpt.correct) {
       this.points += 10;
       setTimeout( () => {
-        this.currentQuestion++;
+        // this.currentQuestion++;
         this.correctAns++;
         this.getProgressWidth();
         this.resetTimer();
@@ -75,7 +74,7 @@ export class QuestionsComponent implements OnInit {
     }
     else {
       setTimeout(() => {
-      this.currentQuestion++;
+      // this.currentQuestion++;
       this.inCorrectAns++;
       this.getProgressWidth()
       this.resetTimer();
@@ -116,6 +115,12 @@ export class QuestionsComponent implements OnInit {
     this.correctAns = 0;
     this.inCorrectAns = 0;
     this.currentQuestion = 0;
+    this.lastQuestion = false;
+    this.progresswidth = "0";
+  }
+
+  viewResult() {
+    this.completedQuiz = true;
   }
 }
 

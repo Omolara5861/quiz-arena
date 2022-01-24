@@ -40,7 +40,8 @@
             <div class="d-flex justify-content-between">
                 <button [disabled]="currentQuestion === 0" class="btn" (click)="prevQuestion()"><i class="fa fa-arrow-left"></i> Back</button>
                 <button class="btn" (click)="resetQuiz()"><i class="fas fa-redo" ></i></button>
-                <button class="btn next btn-dark" (click)="nextQuestion()">Next</button>
+                <button *ngIf="!lastQuestion" class="btn next btn-dark" (click)="nextQuestion()">Next</button>
+                <button *ngIf="lastQuestion"  class="btn next btn-dark" (click)="viewResult()">View Result</button>
             </div>
         </ng-container>
         <!-- Result Container -->
