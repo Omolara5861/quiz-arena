@@ -62,8 +62,8 @@
             </div>
             <div style="margin: 0 auto;">
                 <div class="card neumorphism">
-                    <h5>You scored {{points}} points</h5>
-                    <p>You attempted a total of {{questionList.length}} questions, {{correctAns}} of your options were correct and {{inCorrectAns}} were wrong.</p>
+                    <h5>You scored {{points}} {{points === 0 ? 'point': 'points'}}</h5>
+                    <p>You attempted a total of {{questionList.length}} questions, {{correctAns}} of your options {{correctAns === 0 || correctAns === 1 ? 'was': 'were'}} correct and {{inCorrectAns}} {{inCorrectAns === 0 || inCorrectAns === 1 ? 'was': 'were'}} wrong.</p>
                 </div>
             </div>
 
