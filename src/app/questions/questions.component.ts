@@ -22,6 +22,7 @@ export class QuestionsComponent implements OnInit {
   completedQuiz: boolean = false;  
   lastQuestion: boolean = false;
   nextBtnClicked: boolean = false;
+  static hasAnswered: Boolean = false;
   
 
   constructor(private questionService: QuestionsService) { }
@@ -51,6 +52,7 @@ export class QuestionsComponent implements OnInit {
     this.currentQuestion++;
     this.nextBtnClicked = false;
     this.resetTimer();
+    QuestionsComponent.hasAnswered = false;
   }
 
   prevQuestion() {
@@ -59,6 +61,10 @@ export class QuestionsComponent implements OnInit {
 
   answer(questionNo:number, questionOpt:any) {
     console.log("this is option: " , questionOpt);
+    if(QuestionsComponent.hasAnswered) {
+        return;
+      }
+    QuestionsComponent.hasAnswered = true;
     if(questionOpt) {
         this.nextBtnClicked = true;
 
@@ -128,6 +134,7 @@ export class QuestionsComponent implements OnInit {
     this.lastQuestion = false;
     this.progresswidth = "0";
     this.nextBtnClicked = false;
+    QuestionsComponent.hasAnswered = false;
   }
 
   viewResult() {
@@ -136,4 +143,3 @@ export class QuestionsComponent implements OnInit {
 
  
 }
-
