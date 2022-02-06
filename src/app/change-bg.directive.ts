@@ -10,7 +10,11 @@ export class ChangeBgDirective {
   constructor(private el: ElementRef, private render: Renderer2) { }
 
   @HostListener('click') answer() {
+<<<<<<< HEAD
     if (this.isCorrect && !QuestionsComponent.hasAnswered) {
+=======
+    if (this.isCorrect && !QuestionsComponent.hasAnswered ) {
+>>>>>>> 51ae7d380dd5fc8a30f37c69632e004c2f8808f7
       this.render.setStyle(this.el.nativeElement, 'background', 'darkGreen');
       this.render.setStyle(this.el.nativeElement, 'color', 'white');
     }
