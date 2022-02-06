@@ -9,11 +9,11 @@ import { QuestionsService } from '../services/questions.service';
 })
 export class QuestionsComponent implements OnInit {
 
+  // Variables needed to run the app
   name: string = '';
   questionList: any = [];
   currentQuestion: number = 0;
   points: number = 0;
-  pointsMoreThan1: boolean = true;
   timer: number = 60;
   correctAns: number = 0;
   inCorrectAns: number = 0;
@@ -28,12 +28,16 @@ export class QuestionsComponent implements OnInit {
   constructor(private questionService: QuestionsService) { }
 
   ngOnInit(): void {
+    // Getting the name of the player
     this.name = localStorage.getItem('name')!;
+    // loading all the questions on page load
     this.getAllQuestions();
+    // Immediately starting the timer on page load
     this.startTimer();
   
   }
 
+  // getting the question from the service and subscribing to it immediately
   getAllQuestions() {
     this.questionService.getQuestion()
     .subscribe(
@@ -43,13 +47,16 @@ export class QuestionsComponent implements OnInit {
     }) 
   }
 
+  // Calculating the progress bar width based on the question the player is answering
   getProgressWidth() {
     this.progresswidth = ((this.currentQuestion/this.questionList.length) * 100).toString();
     return this.progresswidth;
   }
 
+
   nextQuestion() {
     this.currentQuestion++;
+    // disabling to the next button if no option is selected
     this.nextBtnClicked = false;
     this.resetTimer();
     QuestionsComponent.hasAnswered = false;
@@ -60,18 +67,18 @@ export class QuestionsComponent implements OnInit {
   }
 
   answer(questionNo:number, questionOpt:any) {
-    console.log("this is option: " , questionOpt);
+
+    // Stopping the player from selecting multiple answers 
     if(QuestionsComponent.hasAnswered) {
         return;
       }
     QuestionsComponent.hasAnswered = true;
+
+    // enabling the next button if an option is selected
     if(questionOpt) {
         this.nextBtnClicked = true;
-
-        if(this.points === 0) {
-          this.pointsMoreThan1 = false;
-      }
   
+        
       if(questionNo === this.questionList.length) {
           this.lastQuestion = true;
       }
