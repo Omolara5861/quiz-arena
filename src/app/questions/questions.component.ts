@@ -68,8 +68,7 @@ export class QuestionsComponent implements OnInit {
 
   // To handle the answer selected by the player
   answer(questionNo: number, questionOpt: any) {
-
-    // Stopping the player from selecting multiple answers 
+    // Stopping the player from selecting multiple answers
     if (QuestionsComponent.hasAnswered) {
       return;
     }
@@ -133,15 +132,25 @@ export class QuestionsComponent implements OnInit {
   /** This method resets the timer to 60 seconds and starts it again. */
   resetTimer() {
     this.stopTimer();
-    this.timer=60;
+    this.timer = 60;
     this.startTimer();
   }
 
   /** This method resets the quiz to its initial state, clearing all stats, and fetching all questions again. */
   resetQuiz() {
-    this.completedQuiz=false;
     this.resetTimer();
+    this.resetStats();
     this.getAllQuestions();
+  }
+
+  /** This method is called when the user has answered all questions and is ready to view their results. */
+  viewResult() {
+    this.completedQuiz=true;
+  }
+
+  /** This method resets all variable */
+  resetStats(): void {
+    this.completedQuiz=false;
     this.points=0;
     this.correctAns=0;
     this.inCorrectAns=0;
@@ -150,12 +159,7 @@ export class QuestionsComponent implements OnInit {
     this.progresswidth="0";
     this.nextBtnClicked=false;
     QuestionsComponent.hasAnswered=false;
+    this.timer=60;
   }
-
-  /** This method is called when the user has answered all questions and is ready to view their results. */
-  viewResult() {
-    this.completedQuiz=true;
-  }
-
 
 }
