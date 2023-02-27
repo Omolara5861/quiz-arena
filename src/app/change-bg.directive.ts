@@ -5,18 +5,20 @@ import { QuestionsComponent } from './questions/questions.component';
   selector: '[appChangeBg]'
 })
 export class ChangeBgDirective {
-  
+
   @Input() isCorrect: Boolean = false;
   constructor(private el: ElementRef, private render: Renderer2) { }
 
   @HostListener('click') answer() {
     if (this.isCorrect && !QuestionsComponent.hasAnswered ) {
-      this.render.setStyle(this.el.nativeElement, 'background', 'darkGreen');
-      this.render.setStyle(this.el.nativeElement, 'color', 'white');
+      // this.render.setStyle(this.el.nativeElement, 'background', 'darkGreen');
+      // this.render.setStyle(this.el.nativeElement, 'color', 'white');
+      this.render.addClass(this.el.nativeElement, 'correct');
     }
     else if(!QuestionsComponent.hasAnswered) {
-      this.render.setStyle(this.el.nativeElement, 'background', 'red');
-      this.render.setStyle(this.el.nativeElement, 'color', 'white');
+      // this.render.setStyle(this.el.nativeElement, 'background', 'red');
+      // this.render.setStyle(this.el.nativeElement, 'color', 'white');
+      this.render.addClass(this.el.nativeElement, 'incorrect')
     }
   } 
 
