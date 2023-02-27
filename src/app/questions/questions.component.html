@@ -1,65 +1,74 @@
 <div class="container my-4">
-    <div class="card main-card">
-        <!-- Question and Options Container -->
-        <ng-container *ngIf="!completedQuiz">
-            <div class="d-flex py-3 justify-content-between p-3">
-                <img src="/assets/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d794bb54.1612525215223787116092.png" alt="logo" width="100">
-    
-                <div>
-                    <h4>General Quiz</h4>
-                    <span>Welcome {{name}}</span>
-                </div>
-            </div>
-            <div class=" d-flex justify-content-around py-3 points-container">
-                <div class="points" >
-                    <h5> {{points}} {{points === 0 ? 'point' : 'points'}}</h5>
-                </div>
-                <div class="question-count">
-                    <span>Question {{currentQuestion+1}} of {{questionList.length}}</span>
-                </div>
-                <div class="timer">
-                    <h5>{{timer}} secs ⏰</h5>
-                </div>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style]="{'width':progresswidth+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <!-- <div class="hero-container">
-                <img class="hero-img" src="assets/quiz.jpg" alt="think-img">
-            </div> -->
-            <div class="question">
-                <h3>{{questionList[currentQuestion]?.questionText}}</h3>
-            </div>
-            <div class="options">
-                <ol *ngFor=" let option of questionList[currentQuestion]?.options">
-                    <li (click)="answer(currentQuestion+1, option) ">
-                        <div appChangeBg [isCorrect]="option.correct" class="card">{{option.text}}</div>
-                    </li>
-                </ol>
-            </div>
-            <div class="d-flex justify-content-between">
-                <button [disabled]="currentQuestion === 0" class="btn" (click)="prevQuestion()"><i class="fa fa-arrow-left"></i> Back</button>
-                <button class="btn" (click)="resetQuiz()"><i class="fas fa-redo" ></i></button>
-                <button *ngIf="!lastQuestion" class="btn next btn-dark" (click)="nextQuestion()" [disabled]="!nextBtnClicked">Next</button>
-                <!-- Result Button -->
-                <button *ngIf="lastQuestion"  class="btn next btn-dark" (click)="viewResult()">View Result</button>
-            </div>
-        </ng-container>
-        <!-- Result Container -->
-        <ng-container *ngIf="completedQuiz">
-            <div class="header text-center">
-                <h4>Quiz Result</h4>
-                <div *ngIf="points >= 60">
-                    <p class="text-uppercase text-success">You've won! Yaayy!!!</p>
-                    <img src="assets/PikPng.com_trophy-icon-png_860603.png">
+  <div class="card main-card">
+      <!-- Question and Options Container -->
+      <ng-container *ngIf="!completedQuiz">
+          <!-- Header with logo, quiz title, and user name -->
+          <div class="d-flex py-3 justify-content-between p-3">
+              <img src="/assets/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d794bb54.1612525215223787116092.png" alt="logo" width="100">
+
+              <div>
+                  <h4>General Quiz</h4>
+                  <span>Welcome {{name}}</span>
+              </div>
+          </div>
+          <!-- Points, Question Count, and Timer display -->
+          <div class=" d-flex justify-content-around py-3 points-container">
+              <div class="points" >
+                  <h5> {{points}} {{points === 0 ? 'point' : 'points'}}</h5>
+              </div>
+              <div class="question-count">
+                  <span>Question {{currentQuestion+1}} of {{questionList.length}}</span>
+              </div>
+              <div class="timer">
+                  <h5>{{timer}} secs ⏰</h5>
+              </div>
+          </div>
+          <!-- Progress bar -->
+          <div class="progress mb-3">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style]="{'width':progresswidth+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <!-- Question display -->
+          <div class="question">
+              <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+          </div>
+          <!-- Options display -->
+          <div class="options">
+              <ol *ngFor=" let option of questionList[currentQuestion]?.options">
+                  <li (click)="answer(currentQuestion+1, option) ">
+                      <!-- Custom directive to change the background color based on correct/incorrect answer -->
+                      <div appChangeBg [isCorrect]="option.correct" class="card">{{option.text}}</div>
+                  </li>
+              </ol>
+          </div>
+          <!-- Navigation buttons -->
+          <div class="d-flex justify-content-between">
+              <button [disabled]="currentQuestion === 0" class="btn" (click)="prevQuestion()"><i class="fa fa-arrow-left"></i> Back</button>
+              <button class="btn" title="Reset Quiz" (click)="resetQuiz()"><i class="fas fa-redo" ></i></button>
+              <!-- Display "Next" button only if it is not the last question -->
+              <button *ngIf="!lastQuestion" class="btn next btn-dark" (click)="nextQuestion()" [disabled]="!nextBtnClicked">Next</button>
+              <!-- Display "View Result" button only if it is the last question -->
+              <button *ngIf="lastQuestion"  class="btn next btn-dark" (click)="viewResult()">View Result</button>
+          </div>
+      </ng-container>
+      <!-- Result Container -->
+      <ng-container *ngIf="completedQuiz">
+          <!-- Quiz result display -->
+          <div class="header text-center">
+              <h4>Quiz Result</h4>
+              <!-- Displays this if the player score 60 or above -->
+              <div *ngIf="points >= 60">
+                  <p class="text-uppercase text-success">You've won! Yaayy!!!</p>
+                  <img src="assets/PikPng.com_trophy-icon-png_860603.png">
                     <p>Congratulations {{name}}, You're a Legend!</p>
                 </div>
+                <!-- Displays this if the player scores less than 60-->
                 <div *ngIf="points < 60">
                     <p class="text-uppercase text-warning" >Oh no! You've Lost!!!</p>
                     <img src="assets/sad.jpg">
                     <p>Sorry {{name}}, You can try again!</p>
                 </div>
             </div>
+            <!-- Details of player score -->
             <div style="margin: 0 auto;">
                 <div class="card neumorphism">
                     <h5>You scored {{points}} {{points === 0 ? 'point': 'points'}}</h5>
@@ -67,6 +76,7 @@
                 </div>
             </div>
 
+            <!-- Action Buttons -->
             <div class="d-flex justify-content-between buttons">
                 <button class="btn again btn-dark" (click)="resetQuiz()"><i class="fa fa-redo"></i> Try Again</button>
                 <button class="btn next1 btn-dark" routerLink="/welcome"><i class="fas fa-arrow-left"></i> Main Menu</button>
