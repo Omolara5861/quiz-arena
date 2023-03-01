@@ -4,6 +4,7 @@
 - [Quiz Arena](#quiz-arena)
   - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
+  - [Preview](#preview)
   - [Features](#features)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -12,15 +13,15 @@
 ## Introduction
 This is a simple quiz application built with Angular where users can play quizzes on various topics.
 
-<!-- ## Preview
+## Preview
 
 Homepage
 
-![The homepage that displays the quiz instructions](/src/assets/homepage.png "Welcome Page")
+![The homepage that displays the quiz instructions](/src/assets/Screenshot_1.png "Welcome Page")
 
 Quiz Page
 
-![The page where users take the quiz](/src/assets/details-page.png "Quiz Page") -->
+![The page where users take the quiz](/src/assets/quiz.png "Quiz Page")
 
 ## Features
 
