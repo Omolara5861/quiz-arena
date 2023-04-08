@@ -1,5 +1,8 @@
 
 # Quiz Arena
+
+[![LICENSE](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
 ## Table of contents
 - [Quiz Arena](#quiz-arena)
   - [Table of contents](#table-of-contents)
@@ -9,6 +12,7 @@
   - [Installation](#installation)
   - [Usage](#usage)
   - [Technical Details / Technologies](#technical-details--technologies)
+  - [License](#license)
 
 ## Introduction
 This is a simple quiz application built with Angular where users can play quizzes on various topics.
@@ -19,16 +23,10 @@ Homepage
 
 ![The homepage that displays the quiz instructions](/src/assets/Screenshot_1.png "Welcome Page")
 
-Quiz Page
-
-![The page where users take the quiz](/src/assets/quiz.png "Quiz Page")
-
 ## Features
 
 - Play quizzes on various topics
 - Immediate feedback on quiz answers
-- Randomized questions to enhance replayability
-
 
 ## Installation
 To install and run the User Catalog project, you will need to have the following software installed on your computer:
@@ -74,3 +72,13 @@ This project was built with VS Code using the following:
 + Angular Version 13
 + Bootstrap 5 for styling
 
+## License
+This project is licensed under the
+[MIT license](https://opensource.org/licenses/MIT).
+Please see the [LICENSE file](LICENSE.md) for more information.
+
+> You can do whatever you want as long as you include the original copyright and
+> license notice in any copy of the project/source.
+
+
+*Copyright (c) 2022 Laradev. All right reserved.*
