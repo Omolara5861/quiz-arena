@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-Quiz-App": {
+    "quizs-arena": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular-Quiz-App",
+            "outputPath": "dist/quizs-arena",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular-Quiz-App:build:production"
+              "browserTarget": "quizs-arena:build:production"
             },
             "development": {
-              "browserTarget": "Angular-Quiz-App:build:development"
+              "browserTarget": "quizs-arena:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-Quiz-App:build"
+            "browserTarget": "quizs-arena:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "Angular-Quiz-App"
+  "defaultProject": "quizs-arena"
 }
