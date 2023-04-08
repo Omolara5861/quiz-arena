@@ -39,18 +39,18 @@ Once you have the required software installed, follow these steps to get started
 
 1. Clone the repository on your local machine using the following command:
 
-```
+```bash
 git clone https://github.com/Omolara5861/quiz-arena.git
 ```
 
 2. Navigate to the project directory using the following command:
 
-```
+```bash
 cd quiz-arena
 ```
 3. Install the required dependencies and run the development server using the following command:
 
-```
+```bash
 npm install && ng serve
 ```
 
