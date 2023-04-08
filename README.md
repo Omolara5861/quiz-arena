@@ -2,6 +2,7 @@
 # Quiz Arena
 
 [![LICENSE](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b4954242-f4d1-4afe-b8f2-d02480c0cbca/deploy-status)](https://app.netlify.com/sites/quizs-arena/deploys)
 
 ## Table of contents
 - [Quiz Arena](#quiz-arena)
